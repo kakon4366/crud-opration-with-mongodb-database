@@ -3,7 +3,18 @@ import { useForm } from "react-hook-form";
 
 const AddUser = () => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = (data) => console.log(data);
+
+	const onSubmit = (data) => {
+		fetch("http://localhost:5000/user", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((result) => console.log(result));
+	};
 
 	return (
 		<div>
