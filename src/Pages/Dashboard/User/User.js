@@ -4,13 +4,15 @@ const User = ({ singleUser }) => {
 	const { _id, name, user, email, password } = singleUser;
 
 	const handleDeleteUser = (id) => {
-		console.log(id);
-		const url = `http://localhost:5000/user/${id}`;
-		fetch(url, {
-			method: "DELETE",
-		})
-			.then((res) => res.json())
-			.then((result) => console.log(result));
+		if (window.confirm("Are you sure delete this user?")) {
+			console.log(id);
+			const url = `http://localhost:5000/user/${id}`;
+			fetch(url, {
+				method: "DELETE",
+			})
+				.then((res) => res.json())
+				.then((result) => console.log(result));
+		}
 	};
 	return (
 		<tr>

@@ -6,7 +6,7 @@ const AddUser = () => {
 	const [users, setUsers] = useUsers();
 	const { register, handleSubmit } = useForm();
 
-	const onSubmit = (data) => {
+	const onSubmit = (data, e) => {
 		fetch("http://localhost:5000/user", {
 			method: "POST",
 			headers: {
@@ -18,6 +18,7 @@ const AddUser = () => {
 			.then((result) => {
 				const newUsers = [...users, result];
 				setUsers(newUsers);
+				e.target.reset();
 			});
 	};
 
