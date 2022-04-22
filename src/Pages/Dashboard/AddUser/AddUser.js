@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import useUsers from "../../../Hooks/useUsers";
 
 const AddUser = () => {
+	const [users, setUsers] = useUsers();
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
@@ -13,7 +15,10 @@ const AddUser = () => {
 			body: JSON.stringify(data),
 		})
 			.then((res) => res.json())
-			.then((result) => console.log(result));
+			.then((result) => {
+				const newUsers = [...users, result];
+				setUsers(newUsers);
+			});
 	};
 
 	return (

@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useUsers from "../../Hooks/useUsers";
 import AddUser from "./AddUser/AddUser";
 import UsersTable from "./UsersTable/UsersTable";
 
 const Dashboard = () => {
-	const [users, setUser] = useState([]);
-
-	useEffect(() => {
-		fetch("http://localhost:5000/users")
-			.then((res) => res.json())
-			.then((data) => setUser(data));
-	}, []);
-
+	const [users] = useUsers();
 	return (
 		<div className="container">
 			<h2>This is dashboard </h2>
