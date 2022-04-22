@@ -1,7 +1,17 @@
 import React from "react";
 
 const User = ({ singleUser }) => {
-	const { name, user, email, password } = singleUser;
+	const { _id, name, user, email, password } = singleUser;
+
+	const handleDeleteUser = (id) => {
+		console.log(id);
+		const url = `http://localhost:5000/user/${id}`;
+		fetch(url, {
+			method: "DELETE",
+		})
+			.then((res) => res.json())
+			.then((result) => console.log(result));
+	};
 	return (
 		<tr>
 			<td>1</td>
@@ -11,7 +21,7 @@ const User = ({ singleUser }) => {
 			<td>{password}</td>
 			<td>
 				<button>edit</button>
-				<button>delete</button>
+				<button onClick={() => handleDeleteUser(_id)}>delete</button>
 			</td>
 		</tr>
 	);
