@@ -7,7 +7,7 @@ const Dashboard = () => {
 	const [users] = useUsers();
 	return (
 		<div className="container">
-			<h2>This is dashboard </h2>
+			<h2 className="text-center">This is dashboard </h2>
 			<AddUser></AddUser>
 			<p>My users is: {users.length}</p>
 			<UsersTable users={users}></UsersTable>

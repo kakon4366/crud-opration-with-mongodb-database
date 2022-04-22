@@ -22,8 +22,13 @@ const User = ({ singleUser }) => {
 			<td>{email}</td>
 			<td>{password}</td>
 			<td>
-				<button>edit</button>
-				<button onClick={() => handleDeleteUser(_id)}>delete</button>
+				<button className="btn btn-primary me-2">edit</button>
+				<button
+					className="btn btn-danger"
+					onClick={() => handleDeleteUser(_id)}
+				>
+					delete
+				</button>
 			</td>
 		</tr>
 	);

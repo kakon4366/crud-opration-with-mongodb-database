@@ -49,9 +49,14 @@ const AddUser = () => {
 						placeholder="Password"
 						{...register("password", { required: true })}
 					/>
-					<input className="mb-3 py-1" type="submit" value="Add User" />
+					<input
+						className="mb-3 py-1 btn btn-primary"
+						type="submit"
+						value="Add User"
+					/>
 				</form>
 			</div>
+			<hr />
 		</div>
 	);
 };
