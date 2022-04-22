@@ -11,7 +11,6 @@ const User = ({ singleUser }) => {
 			<td>{password}</td>
 			<td>
 				<button>edit</button>
-				<button>update</button>
 				<button>delete</button>
 			</td>
 		</tr>

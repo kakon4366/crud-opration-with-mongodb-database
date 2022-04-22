@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AddUser from "./AddUser/AddUser";
 import UsersTable from "./UsersTable/UsersTable";
 
 const Dashboard = () => {
@@ -11,8 +12,9 @@ const Dashboard = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className="container">
 			<h2>This is dashboard </h2>
+			<AddUser></AddUser>
 			<p>My users is: {users.length}</p>
 			<UsersTable users={users}></UsersTable>
 		</div>
