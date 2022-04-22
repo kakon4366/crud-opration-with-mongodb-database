@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useUsers from "../../../Hooks/useUsers";
 
 const User = ({ singleUser }) => {
+	const [users, setUsers] = useUsers();
 	const { _id, name, user, email, password } = singleUser;
 	const navigate = useNavigate();
 
@@ -12,7 +14,11 @@ const User = ({ singleUser }) => {
 				method: "DELETE",
 			})
 				.then((res) => res.json())
-				.then((result) => console.log(result));
+				.then((result) => {
+					console.log(result);
+					const remining = users.filter((user) => user._id !== id);
+					setUsers(remining);
+				});
 		}
 	};
 

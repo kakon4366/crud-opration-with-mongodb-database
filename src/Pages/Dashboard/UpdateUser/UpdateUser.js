@@ -1,10 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import useUsers from "../../../Hooks/useUsers";
 
 const UpdateUser = () => {
-	// const [users, setUsers] = useUsers();
 	const { id } = useParams();
 	const { register, handleSubmit } = useForm();
 

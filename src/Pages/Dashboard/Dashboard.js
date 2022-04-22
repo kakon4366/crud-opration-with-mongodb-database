@@ -5,6 +5,7 @@ import UsersTable from "./UsersTable/UsersTable";
 
 const Dashboard = () => {
 	const [users] = useUsers();
+	console.log("Update user", users);
 	return (
 		<div className="container">
 			<h2 className="text-center">This is dashboard </h2>
