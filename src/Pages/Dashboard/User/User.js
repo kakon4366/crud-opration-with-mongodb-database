@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useUsers from "../../../Hooks/useUsers";
 
-const User = ({ singleUser }) => {
+const User = ({ singleUser, handlerDeleteControl }) => {
 	const [users, setUsers] = useUsers();
 	const { _id, name, user, email, password } = singleUser;
 	const navigate = useNavigate();
@@ -41,7 +41,10 @@ const User = ({ singleUser }) => {
 				</button>
 				<button
 					className="btn btn-danger"
-					onClick={() => handleDeleteUser(_id)}
+					onClick={() => {
+						handleDeleteUser(_id);
+						handlerDeleteControl();
+					}}
 				>
 					delete
 				</button>
