@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import User from "../User/User";
 
-const UsersTable = ({ users }) => {
+const UsersTable = ({ control }) => {
+	const [users, setUsers] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:5000/users")
+			.then((res) => res.json())
+			.then((data) => setUsers(data));
+	}, [control]);
+
 	return (
 		<div>
 			<Table striped bordered hover size="sm">

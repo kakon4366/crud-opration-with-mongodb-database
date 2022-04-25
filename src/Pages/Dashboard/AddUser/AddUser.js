@@ -1,9 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useUsers from "../../../Hooks/useUsers";
 
-const AddUser = () => {
-	const [users, setUsers] = useUsers();
+const AddUser = ({ handleControl }) => {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data, e) => {
@@ -16,8 +14,9 @@ const AddUser = () => {
 		})
 			.then((res) => res.json())
 			.then((result) => {
-				const newUsers = [...users, result];
-				setUsers(newUsers);
+				if (result) {
+					handleControl();
+				}
 				e.target.reset();
 			});
 	};
