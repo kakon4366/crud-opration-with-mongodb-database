@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useUsers from "../../../Hooks/useUsers";
 
-const User = ({ singleUser, handlerDeleteControl }) => {
+const User = ({ singleUser, handlerDeleteControl, index }) => {
 	const [users, setUsers] = useUsers();
 	const { _id, name, user, email, password } = singleUser;
 	const navigate = useNavigate();
@@ -27,7 +27,7 @@ const User = ({ singleUser, handlerDeleteControl }) => {
 	};
 	return (
 		<tr>
-			<td>1</td>
+			<td>{index + 1}</td>
 			<td>{name}</td>
 			<td>{user}</td>
 			<td>{email}</td>

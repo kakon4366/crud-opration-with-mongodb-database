@@ -30,11 +30,12 @@ const UsersTable = ({ control }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{users.map((user) => (
+					{users.map((user, index) => (
 						<User
 							handlerDeleteControl={handlerDeleteControl}
 							singleUser={user}
 							key={user._id}
+							index={index}
 						></User>
 					))}
 				</tbody>
